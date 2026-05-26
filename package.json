@@ -1,0 +1,27 @@
+{
+    "name": "app.form",
+    "version": "1.0.0",
+    "description": "test",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "pw-test": "npx playwright test",
+        "pw-report": "npx playwright show-report"
+    },
+    "keywords": [],
+    "author": "yk",
+    "license": "ISC",
+    "devDependencies": {
+        "@faker-js/faker": "^10.4.0",
+        "@playwright/test": "^1.60.0",
+        "@types/node": "^25.8.0"
+    },
+    "directories": {
+        "test": "tests"
+    },
+    "dependencies": {
+        "playwright": "^1.60.0",
+        "playwright-core": "^1.60.0",
+        "undici-types": "^7.24.6"
+    }
+}
