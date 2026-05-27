@@ -1,8 +1,9 @@
 import { test, expect } from "../utils/fixtures/appFixture";
-import { User } from "../types/user";
+import { User, PictureType } from "../types/user";
 import {
     generateUserData,
-    generateUserDataRequired
+    generateUserDataRequired,
+    getAvatar
 } from "../utils/data/user.data.factory";
 
 test.describe("Application form | Positive tests", () => {
@@ -24,7 +25,7 @@ test.describe("Application form | Positive tests", () => {
         await expect(app.page).toHaveTitle(app.formSubmitResult.pageTitle);
         await expect(await app.formSubmitResult.getName()).toBe(name(user));
         await expect(await app.formSubmitResult.getEmail()).toBe(user.Email);
-        await expect(await app.formSubmitResult.getAvatar()).toBe(
+        await expect(await app.formSubmitResult.getAvatarText()).toBe(
             "No Avatar Uploaded"
         );
     });
@@ -39,4 +40,28 @@ test.describe("Application form | Positive tests", () => {
         await expect(await app.formSubmitResult.getName()).toBe(name(user));
         await expect(await app.formSubmitResult.getEmail()).toBe(user.Email);
     });
+
+    const testData = [
+        PictureType.bmp,
+        PictureType.gif,
+        PictureType.jpeg,
+        PictureType.jpg,
+        PictureType.png
+    ];
+
+    for (const picture of testData) {
+        test(`Successful form submission | Avatar is ${PictureType[picture]}`, async ({
+            app
+        }) => {
+            const user: User = generateUserDataRequired();
+            user.Avatar = { UploadFrom: getAvatar({ picture }) };
+
+            await app.appForm.submitApplicationForm(user);
+
+            await expect(app.page).toHaveTitle(app.formSubmitResult.pageTitle);
+            await expect(
+                await app.formSubmitResult.getAvatar()
+            ).toHaveScreenshot(user.Avatar.UploadFrom);
+        });
+    }
 });

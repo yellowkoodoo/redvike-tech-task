@@ -27,8 +27,12 @@ export default class FormResultPage extends BasePage {
         return await this.getText(AppFormElements.Email);
     }
 
-    async getAvatar() {
+    async getAvatarText() {
         return await this.getText(AppFormElements.Avatar);
+    }
+
+    async getAvatar() {
+        return await this.getElement(AppFormElements.Avatar);
     }
 
     private async getText(formElement: AppFormElements): Promise<string> {
