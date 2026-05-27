@@ -1,4 +1,5 @@
 import { Page } from "@playwright/test";
+import { url } from "node:inspector";
 
 export default class BasePage {
     readonly page: Page;
@@ -9,7 +10,6 @@ export default class BasePage {
 
     async navigate() {
         await this.page.goto("/");
-        await this.checkSuccessfulLoad();
     }
 
     async checkSuccessfulLoad() {

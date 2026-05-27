@@ -46,10 +46,6 @@ export default class AppFormPage extends BasePage {
         await this.clickSubmit();
     }
 
-    async checkSuccessfulSubmit() {
-        await this.checkSuccessfulLoad();
-    }
-
     getErrorMessageLocator() {
         return this.errors.first();
     }

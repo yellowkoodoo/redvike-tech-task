@@ -1,4 +1,4 @@
-import { Locator } from "@playwright/test";
+import { Locator, expect } from "@playwright/test";
 import BasePage from "./base/base.page";
 
 export enum AppFormElements {
@@ -12,20 +12,29 @@ export default class FormResultPage extends BasePage {
 
     private readonly submitButton = this.page.locator("a");
 
-    private readonly getTextElement = (formElement: AppFormElements): Locator =>
-        this.page.locator(
-            `//strong[text()="${formElement}"]/following-sibling::text()[1]`
-        );
+    private readonly getElement = (formElement: AppFormElements): Locator =>
+        this.page.locator(`//strong[text()="${formElement}"]`);
+
+    async checkUserPassedSubmission() {
+        await expect(this.page).toHaveURL(/success/);
+    }
 
     async getName() {
-        await this.getTextElement(AppFormElements.Name).textContent();
+        return await this.getText(AppFormElements.Name);
     }
 
     async getEmail() {
-        await this.getTextElement(AppFormElements.Email).textContent();
+        return await this.getText(AppFormElements.Email);
     }
 
     async getAvatar() {
-        await this.getTextElement(AppFormElements.Avatar).textContent();
+        return await this.getText(AppFormElements.Avatar);
+    }
+
+    private async getText(formElement: AppFormElements): Promise<string> {
+        const element = this.getElement(formElement);
+        return await element.evaluate(
+            (e) => e.nextSibling?.textContent?.trim() ?? " "
+        );
     }
 }
