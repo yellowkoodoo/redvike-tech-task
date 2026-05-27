@@ -1,7 +1,12 @@
 name: Playwright Tests (docker)
 on:
-    schedule:
-        - cron "0 0 31 2 *"
+    workflow_dispatch:
+    inputs:
+        project:
+            description: "Project to run (e.g. e2e)"
+            required: false
+            default: "appForm"
+            type: string
 
 jobs:
     test:

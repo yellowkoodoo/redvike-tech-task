@@ -1,18 +1,11 @@
 name: Playwright Tests (docker pages)
 on:
-    # push:
-    #     branches: [main]
-    # pull_request:
-    #     branches: [main]
-    schedule:
-        - cron "0 0 31 2 *"
-
     workflow_dispatch:
         inputs:
             project:
                 description: "Project to run (e.g. e2e)"
                 required: false
-                default: "e2e"
+                default: "appForm"
                 type: string
 
 jobs:
