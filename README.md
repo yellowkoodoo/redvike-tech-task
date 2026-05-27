@@ -5,7 +5,9 @@ The application is a simple form that takes user information, including first na
 ## Technology Choice:
 
 The automation framework is built using TypeScript and Playwright to provide a modern, reliable, and scalable testing solution.
+
 **TypeScript** was selected as the primary programming language due to its strong typing, improved code maintainability, and enhanced developer experience. Static type checking helps reduce runtime errors and improves code quality, especially in continuously evolving automation projects.
+
 **Playwright** was chosen as the automation framework because of its stability, speed, and comprehensive support for modern web applications.
 The combination of TypeScript and Playwright provides a robust foundation for building maintainable end-to-end test automation with strong scalability and long-term support.
 
@@ -26,7 +28,8 @@ The framework is organized into logical modules, allowing easy navigation and si
 
 ## Test summary
 
-Based on the defined requirements and feature importance, the MVP-stage coverage includes 18 tests.
+Based on the defined requirements and feature importance, the MVP-stage coverage includes **18 tests**.
+
 7 positive scenarios:
 
 - Successful form submission | Required fields
@@ -56,8 +59,8 @@ Test results are:
 
 ### Issues
 
-All the issues can be found in Issues tab in GitHub
+Main issues can be found in Issues tab in GitHub
 
 ### Suggestion
 
-All the suggestions can be found in Issues tab in GitHub and Results section above
+Main suggestions can be found in Issues tab in GitHub and Results section above
