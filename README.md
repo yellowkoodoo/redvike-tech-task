@@ -17,10 +17,12 @@ The framework is organized into logical modules, allowing easy navigation and si
 
 ## Instructions
 
-- to run tests for IDE, use `npm run pw-test`
+- to setup IDE, run `npm install` followed by `npx playwright install`
+
+- to run tests from IDE, use `npm run pw-test`
 - to run tests from GitHub, use ``
 
-- to see the test report, use `npm run pw-report`
+- to see the test report in IDE, use `npm run pw-report`
 
 ## Test summary
 
@@ -48,8 +50,9 @@ Based on the defined requirements and feature importance, the MVP-stage coverage
 ### Results
 
 Test results are:
-1 / 7 positive cases pass and users cannot register using avatars at all which needs immediate addressing
-7 / 11 negative tests pass, which sound like very basic level of validations, it posses a huge security risks as inputs are not protected from forbidden characters, potentially dangerous and huge files
+
+- 1 / 7 positive cases pass and users cannot register using avatars at all which needs immediate addressing
+- 7 / 11 negative tests pass, which sound like very basic level of validations, it posses a huge security risks as inputs are not protected from forbidden characters, potentially dangerous and huge files
 
 ### Issues
 
