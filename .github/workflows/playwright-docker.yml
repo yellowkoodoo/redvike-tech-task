@@ -1,12 +1,13 @@
 name: Playwright Tests (docker)
+
 on:
     workflow_dispatch:
-    inputs:
-        project:
-            description: "Project to run (e.g. e2e)"
-            required: false
-            default: "appForm"
-            type: string
+        inputs:
+            project:
+                description: "Project to run (e.g. e2e)"
+                required: false
+                default: "appForm"
+                type: string
 
 jobs:
     test:
