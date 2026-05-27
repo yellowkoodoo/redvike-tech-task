@@ -27,9 +27,8 @@ IDE
 
 GitHub
 
-- to run tests from GitHub, use ``
-
-- to see the test report in IDE, use `npm run pw-report`
+- to run tests from GitHub, go to Actions -> Run the workflow
+- to see the test report, visit `https://yellowkoodoo.github.io/redvike-tech-task/`
 
 ## Test summary
 
